@@ -66,7 +66,6 @@ dias.forEach(dia => {
         body: input.value ? `Nuevo texto: "${input.value}"` : "Texto borrado",
         icon: "icono-192.png" // si quieres un icono
       });
-    }
   });
 
   div.appendChild(label);
