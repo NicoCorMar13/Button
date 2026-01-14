@@ -50,11 +50,15 @@ dias.forEach(dia => {
   input.placeholder = "Escribe algo...";
   input.id = dia;
 
+  const btn = document.createElement("button");
+  btn.textContent = "Guardar";
+  btn.style.marginTop = "5px";
+
   // Cargar lo que estaba guardado
   input.value = localStorage.getItem(dia) || "";
 
   // Guardar y notificar al escribir
-  input.addEventListener("input", () => {
+  btn.addEventListener("click", () => {
     localStorage.setItem(dia, input.value);
 
     if (Notification.permission === "granted") {
@@ -67,6 +71,7 @@ dias.forEach(dia => {
 
   div.appendChild(label);
   div.appendChild(input);
+  div.appendChild(btn);
   contenedor.appendChild(div);
 });
 
