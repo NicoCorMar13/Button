@@ -7,3 +7,5 @@ terminal, usando el comando 'npm install web-push'
 
 - Ver porque no abre el archivo index.js de la carpeta src --> CORREGIDO -->
 --> Ahora no es capaz de leer el valor de las variables de las llaves
+
+- 14/01 Tenemos una aplicacion donde podemos introducir texto en cajones y guardar en local, pero no lana la notificacion como que se ha editado el contenido.
