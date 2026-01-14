@@ -58,14 +58,18 @@ dias.forEach(dia => {
   input.value = localStorage.getItem(dia) || "";
 
   // Guardar y notificar al escribir
-  btn.addEventListener("click", () => {
+  btn.addEventListener("click", async () => {
     localStorage.setItem(dia, input.value);
 
-    if (Notification.permission === "granted") {
-      new Notification(`Se actualizó ${dia}`, {
-        body: input.value ? `Nuevo texto: "${input.value}"` : "Texto borrado",
-        icon: "icono-192.png" // si quieres un icono
+    const permission = await Notification.requestPermission();
+    console.log("Permiso: ", permission);
+
+    if (permission === "granted") {
+        const registration = await navigator.serviceWorker.ready;
+        registration.showNotification(`Modificacion`, {
+        body: "Se ha actualizado",
       });
+    }
   });
 
   div.appendChild(label);
