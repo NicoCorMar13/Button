@@ -1,24 +1,27 @@
 const button = document.getElementById("notifyBtn");
 
-// Registrar el Service Worker
+console.log("JS cargado");
+
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js")
         .then(() => console.log("Service Worker registrado"))
         .catch(err => console.error("Error SW:", err));
+} else {
+    console.log("Service Worker NO soportado");
 }
 
 button.addEventListener("click", async () => {
-    // Pedir permiso
+    console.log("Botón pulsado");
+
     const permission = await Notification.requestPermission();
+    console.log("Permiso:", permission);
 
     if (permission === "granted") {
-        navigator.serviceWorker.ready.then(registration => {
-            registration.showNotification("¡Hola! 👋", {
-                body: "Has hecho clic en el botón",
-                icon: "https://cdn-icons-png.flaticon.com/512/1827/1827392.png"
-            });
+        const registration = await navigator.serviceWorker.ready;
+        registration.showNotification("¡Hola! 👋", {
+            body: "Has hecho clic en el botón",
         });
     } else {
-        alert("Permiso denegado para notificaciones");
+        alert("No diste permiso para notificaciones");
     }
 });
