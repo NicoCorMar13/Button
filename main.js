@@ -1,26 +1,24 @@
+const button = document.getElementById("notifyBtn");
+
+// Registrar el Service Worker
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js")
+        .then(() => console.log("Service Worker registrado"))
+        .catch(err => console.error("Error SW:", err));
+}
+
 button.addEventListener("click", async () => {
-    let permission = Notification.permission;
-    console.log("Estado inicial:", permission);
+    // Pedir permiso
+    const permission = await Notification.requestPermission();
 
-    if (permission === "default") {
-        permission = await Notification.requestPermission();
-        console.log("Resultado:", permission);
-    }
-
-    if (permission !== "granted") {
-        console.warn("Permiso no concedido");
-        alert("No tienes permiso para notificaciones (política de empresa)");
-        return;
-    }
-
-    // Notificación directa → la más resistente a políticas corporativas
-    try {
-        new Notification("¡Prueba en empresa!", {
-            body: "Notificación sin Service Worker (modo desarrollo)",
-            icon: "/tu-icono-local.png"  // mejor usa uno local si puedes
+    if (permission === "granted") {
+        navigator.serviceWorker.ready.then(registration => {
+            registration.showNotification("¡Hola! 👋", {
+                body: "Has hecho clic en el botón",
+                icon: "https://cdn-icons-png.flaticon.com/512/1827/1827392.png"
+            });
         });
-        console.log("Notificación directa mostrada OK");
-    } catch (err) {
-        console.error("Error incluso en directa:", err);
+    } else {
+        alert("Permiso denegado para notificaciones");
     }
 });
