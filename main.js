@@ -1,4 +1,4 @@
-const button = document.getElementById("notifyBtn");
+const button = document.getElementById("boton");
 
 console.log("JS cargado");
 
