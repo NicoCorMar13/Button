@@ -62,15 +62,20 @@ dias.forEach(dia => {
   btn.addEventListener("click", async () => {
     localStorage.setItem(dia, input.value);
 
-    const permission = await Notification.requestPermission();
-    console.log("Permiso: ", permission);
+    //const permission = await Notification.requestPermission();
+    //console.log("Permiso: ", permission);
 
-    if (permission === "granted") {
-        const registration = await navigator.serviceWorker.ready;
-        registration.showNotification(`Modificacion`, {
-        body: "Se ha actualizado",
-      });
+    if (Notification.permission !== "granted") {
+        alert("No has dado permiso para notificaciones");
+            return;
     }
+
+    const registration = await navigator.serviceWorker.ready;
+
+    registration.showNotification("Modificacion guardada", {
+        body: 'Se actualizó ${dia}',
+        tag: dia
+    });
   });
 
   div.appendChild(label);
