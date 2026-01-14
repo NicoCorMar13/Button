@@ -32,6 +32,12 @@ if (button) {
 const dias = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"];
 const contenedor = document.getElementById("semanas");
 
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js")
+        .then(() => console.log("Service Worker registrado"))
+        .catch(err => console.error("Error SW:", err));
+}
+
 // Pedir permiso de notificaciones al cargar
 if ("Notification" in window && Notification.permission !== "granted") {
   Notification.requestPermission();
@@ -53,6 +59,7 @@ dias.forEach(dia => {
   const btn = document.createElement("button");
   btn.textContent = "Guardar";
   btn.style.marginTop = "5px";
+  input.id = dia;
 
   // Cargar lo que estaba guardado
   input.value = localStorage.getItem(dia) || "";
