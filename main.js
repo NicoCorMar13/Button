@@ -62,7 +62,17 @@ dias.forEach(dia => {
 
   // Guardar y notificar al escribir
   btn.addEventListener("click", async () => {
-    localStorage.setItem(dia, input.value);
+    //Obtenemos valor antiguo
+    const valorAntiguo = localStorage.getItem(dia) || "";
+    //Obtenemos el valor nuevo
+    const valorNuevo = input.value
+    //Comparamos valores
+    if (valorNuevo === valorAntiguo){
+        alert("No has hecho modificaciones a guardar.");
+        return;/*Salimos de la funcion para que no continue y asi no hacemos cambios ni notificaciones de cambios*/
+    }
+    //Si son diferentes guardamos los cambios
+    localStorage.setItem(dia, valorNuevo);
 
     //const permission = await Notification.requestPermission();
     //console.log("Permiso: ", permission);
