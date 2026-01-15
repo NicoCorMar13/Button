@@ -77,12 +77,14 @@ dias.forEach(dia => {
     //const permission = await Notification.requestPermission();
     //console.log("Permiso: ", permission);
 
+    alert(`Has modificado el contenido del ${dia}`);
+
     if (Notification.permission !== "granted") {
         alert("No has dado permiso para notificaciones");
             return;
     }
 
-    alert(`Has modificado el contenido del ${dia}`);
+    //alert(`Has modificado el contenido del ${dia}`);
 
     const registration = await navigator.serviceWorker.ready;
 
