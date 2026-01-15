@@ -88,3 +88,29 @@ dias.forEach(dia => {
   contenedor.appendChild(div);
 });
 
+/*Para resaltar el dia cuando venimos de la notificacion*/
+document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const dia = params.get("dia");
+
+    if (!dia) return;
+
+    const campo = document.getElementById(dia);
+
+    if (campo) {
+        campo.classList.add("resaltado");
+
+        // Scroll suave hasta el campo
+        campo.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+        // Quitar el resaltado después de unos segundos (opcional)
+        setTimeout(() => {
+            campo.classList.remove("resaltado");
+        }, 4000);
+    }
+});
+
+

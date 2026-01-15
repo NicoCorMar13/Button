@@ -71,3 +71,14 @@ h1 {
   border-radius: 5px;
   border: 1px solid #ccc;
 }
+
+/*Los dos siguientes es para el resaltado del dia despues de clicar en la notificacion*/
+.resaltado {
+    animation: parpadeo 1.5s ease-in-out 2;
+}
+
+@keyframes parpadeo {
+    0%   { background-color: #eaf3ff; }
+    50%  { background-color: #cfe4ff; }
+    100% { background-color: #eaf3ff; }
+}
