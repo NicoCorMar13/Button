@@ -72,6 +72,8 @@ dias.forEach(dia => {
             return;
     }
 
+    alert(`Has modificado el contenido del ${dia}`);
+
     const registration = await navigator.serviceWorker.ready;
 
     registration.showNotification("Modificacion guardada", {
