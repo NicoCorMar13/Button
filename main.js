@@ -73,7 +73,7 @@ dias.forEach(dia => {
     const registration = await navigator.serviceWorker.ready;
 
     registration.showNotification("Modificacion guardada", {
-        body: 'Se actualizó ${dia}',
+        body: `Se actualizó ${dia}`,/*Para que muestre el dia, hay que utilizar acentos, no comillas*/
         tag: dia
     });
   });
