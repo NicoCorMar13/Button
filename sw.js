@@ -10,7 +10,7 @@ const cacheName = 'mi-app-cache-v1';
 const filesToCache = [
   '/',
   '/index.html',
-  '/style.css',
+  '/styles.css',
   '/main.js'
 ];
 
@@ -43,7 +43,7 @@ self.addEventListener("notificationclick", event => {
         clients.matchAll({ type: "window", includeUncontrolled: true })
             .then(clientList => {
                 // Si ya hay una ventana abierta, enfocarla
-                for (const client of windowClients) {
+                for (const client of clientList) {
                     if (client.url.includes(url) && "focus" in client) {
                         return client.focus();
                     }

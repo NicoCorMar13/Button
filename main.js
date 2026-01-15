@@ -7,13 +7,6 @@ if ("Notification" in window && Notification.permission !== "granted") {
   Notification.requestPermission();
 }
 
-//Registramos el Service Worker
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js')
-        .then(reg => console.log('SW registrado', reg))
-        .catch(err => console.log('Error registrando SW', err));
-}
-
 // Crear los inputs
 dias.forEach(dia => {
     //Division por dia
