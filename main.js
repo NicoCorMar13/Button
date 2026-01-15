@@ -74,6 +74,7 @@ dias.forEach(dia => {
 
     registration.showNotification("Modificacion guardada", {
         body: `Se actualizó ${dia}`,/*Para que muestre el dia, hay que utilizar acentos, no comillas*/
+        icon: 'icono-192.png',
         tag: dia
     });
   });
