@@ -48,12 +48,14 @@ dias.forEach(dia => {
   const input = document.createElement("input");
   input.type = "text";
   input.placeholder = "Escribe algo...";
-  input.id = dia;
+  /*input.id = id;*/
+  input.dataset.dia = dia;
 
   const btn = document.createElement("button");
   btn.textContent = "Guardar";
   btn.style.marginTop = "5px";
-  input.id = dia;
+  /*btn.id = id;*/
+  btn.dataset.dia = dia;
 
   // Cargar lo que estaba guardado
   input.value = localStorage.getItem(dia) || "";
@@ -95,22 +97,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!dia) return;
 
-    const campo = document.getElementById(dia);
+    const bloque = document.querySelector(`.dia[data-dia="${dia}"]`);
 
-    if (campo) {
-        campo.classList.add("resaltado");
+    if (bloque) {
+        bloque.classList.add("resaltado");
 
-        // Scroll suave hasta el campo
-        campo.scrollIntoView({
+        bloque.scrollIntoView({
             behavior: "smooth",
             block: "center"
         });
 
-        // Quitar el resaltado después de unos segundos (opcional)
         setTimeout(() => {
-            campo.classList.remove("resaltado");
+            bloque.classList.remove("resaltado");
         }, 4000);
     }
 });
+
 
 
