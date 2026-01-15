@@ -75,14 +75,10 @@ dias.forEach(dia => {
     registration.showNotification("Modificacion guardada", {
         body: `Se actualizó ${dia}`,/*Para que muestre el dia, hay que utilizar acentos, no comillas*/
         icon: 'icono-192.png',
-        tag: dia
-    });
-
-    registration.showWebNotification("Modificacion guardada", {
-        msg: `Se actualizó ${dia}`,
-        icon: 'icono-192.png',
-        tag: dia,
-        timeout: 3000
+        tag: dia, /*Para agrupar las notificaciones del mismo dia*/
+        data: {/*Para que al clickar nos lleve a este enlace*/
+            url: "https://nicocormar13.github.io/Button/"
+        }
     });
   });
 

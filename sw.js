@@ -32,3 +32,27 @@ self.addEventListener('fetch', e => {
     caches.match(e.request).then(response => response || fetch(e.request))
   );
 });
+
+// Ir a la app al hacer click en notificacion
+self.addEventListener("notificationclick", event => {
+    event.notification.close();
+
+    const url = "https://nicocormar13.github.io/Button/";
+
+    event.waitUntil(
+        clients.matchAll({ type: "window", includeUncontrolled: true })
+            .then(clientList => {
+                // Si ya hay una ventana abierta, enfocarla
+                for (const client of clientList) {
+                    if (client.url.includes(url) && "focus" in client) {
+                        return client.focus();
+                    }
+                }
+                // Si no, abrir una nueva
+                if (clients.openWindow) {
+                    return clients.openWindow(url);
+                }
+            })
+    );
+});
+
