@@ -77,6 +77,13 @@ dias.forEach(dia => {
         icon: 'icono-192.png',
         tag: dia
     });
+
+    registration.showWebNotification("Modificacion guardada", {
+        msg: `Se actualizó ${dia}`,
+        icon: 'icono-192.png',
+        tag: dia,
+        timeout: 3000
+    });
   });
 
   div.appendChild(label);
