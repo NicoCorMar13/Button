@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
@@ -44,4 +43,3 @@ h1 {
     border-radius: 8px;
     padding: 10px;
 }
-

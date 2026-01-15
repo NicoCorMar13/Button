@@ -14,7 +14,7 @@ const filesToCache = [
   '/main.js'
 ];
 
-// Instalación
+// Instalación de la app web en el movil
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(cacheName).then(cache => cache.addAll(filesToCache))
@@ -43,7 +43,7 @@ self.addEventListener("notificationclick", event => {
         clients.matchAll({ type: "window", includeUncontrolled: true })
             .then(clientList => {
                 // Si ya hay una ventana abierta, enfocarla
-                for (const client of clientList) {
+                for (const client of windowClients) {
                     if (client.url.includes(url) && "focus" in client) {
                         return client.focus();
                     }

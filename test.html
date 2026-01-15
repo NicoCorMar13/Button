@@ -4,23 +4,20 @@
     <meta charset="UTF-8">
     <title>Test Notificación</title>
 </head>
-<body>
+    <body>
+        <button id="btn">Test Notificación</button>
+        <script>
+            document.getElementById("btn").addEventListener("click", async () => {
+            const permission = await Notification.requestPermission();
 
-<button id="btn">Test Notificación</button>
-
-<script>
-document.getElementById("btn").addEventListener("click", async () => {
-    const permission = await Notification.requestPermission();
-
-    if (permission === "granted") {
-        new Notification("🔥 FUNCIONA", {
-            body: "Esta notificación debe aparecer sí o sí"
-        });
-    } else {
-        alert("Permiso no concedido");
-    }
-});
-</script>
-
-</body>
+            if (permission === "granted") {
+                new Notification("🔥 FUNCIONA", {
+                    body: "Esta notificación debe aparecer sí o sí"
+                });
+            } else {
+                alert("Permiso no concedido");
+            }
+            });
+        </script>
+    </body>
 </html>

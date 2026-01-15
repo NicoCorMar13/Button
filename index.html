@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button Example</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="icono-192.png" type="image/png">
-    <meta name="theme-color" content="#000000">
-</head>
-<body>
-    <h1>Mi semana</h1>
-    <div id="semanas"></div>
-
-    <script src="main.js" defer></script>
-
-    <script>
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('sw.js')
-            .then(() => console.log('Service Worker registrado'))
-            .catch(err => console.log('Error al registrar SW:', err));
-        }
-    </script>
-
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Button Example</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="manifest" href="manifest.json">
+        <link rel="icon" href="icono-192.png" type="image/png">
+        <meta name="theme-color" content="#000000">
+    </head>
+    <body>
+        <h1>Mi semana</h1>
+        <div id="semanas"></div>
+        <script src="main.js" defer></script>
+        <script>
+            if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(() => console.log('Service Worker registrado'))
+                .catch(err => console.log('Error al registrar SW:', err));
+            }
+        </script>
+    </body>
 </html>
