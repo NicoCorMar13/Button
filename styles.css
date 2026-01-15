@@ -1,43 +1,8 @@
-/**{/*Reset basico
+*{/*Reset basico*/
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-body{/*Centrado total
-    height: 100vh;
-    display: flex;
-    justify-content: center;/*Horizontal
-    align-items: center;/*Vertical
-    background-color: #f0f0f0;
-}
-
-.boton{/*Personalizar el boton
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn:hover{/*PErsonalizamos lo que hace el boton al pasar por encima el cursor
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
-
-.dia {
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-input {
-  padding: 8px;
-  font-size: 1rem;
-}*/
 
 
 body {
